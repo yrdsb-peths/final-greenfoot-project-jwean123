@@ -51,7 +51,10 @@ public class Guy extends Actor
     
     public void fall()
     {
-        setLocation(getX(), getY() + vSpeed);
-        vSpeed = vSpeed + vAcceleration;
+        if(!grounded())
+        {
+            setLocation(getX(), getY() + vSpeed);
+            vSpeed = vSpeed + vAcceleration;
+        }
     }
 }
