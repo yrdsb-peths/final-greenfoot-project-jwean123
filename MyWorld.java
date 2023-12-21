@@ -8,14 +8,23 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-
+    Guy guy;
+    
+    private int speed = 5;
+    
     /**
      * Constructor for objects of class MyWorld.
      * 
      */
     public MyWorld()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1);
+        super(825, 550, 1);
+        guy = new Guy();
+        addObject(guy, getWidth() / 2, getHeight() / 2);
+    }
+    
+    public int getSpeed()
+    {
+        return speed;
     }
 }
