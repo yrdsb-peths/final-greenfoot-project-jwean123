@@ -9,7 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Guy extends Actor
 {
     int speed = 5;
-    int vSpeed = 3;
+    int vSpeed = 0;
+    int vAcceleration = 1;
     
     public Guy()
     {
@@ -45,5 +46,6 @@ public class Guy extends Actor
     public void fall()
     {
         setLocation(getX(), getY() + vSpeed);
+        vSpeed = vSpeed + vAcceleration;
     }
 }
