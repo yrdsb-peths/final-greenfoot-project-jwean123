@@ -43,6 +43,12 @@ public class Guy extends Actor
         }
     }
     
+    public boolean grounded()
+    {
+        Actor floor = getOneObjectAtOffset(0, getY() / 2, Floor.class);
+        return floor != null;
+    }
+    
     public void fall()
     {
         setLocation(getX(), getY() + vSpeed);
