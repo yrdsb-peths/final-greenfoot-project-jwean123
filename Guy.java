@@ -12,7 +12,6 @@ public class Guy extends Actor
     
     int speed = 5;
     int vSpeed = 0;
-    int jumpHeight = 60;
     
     public Guy()
     {
@@ -50,7 +49,7 @@ public class Guy extends Actor
     
     public boolean isGrounded()
     {
-        floor = getOneObjectAtOffset(0, 0, Floor.class);
+        floor = getOneObjectAtOffset(0, 20, Floor.class);
         return floor != null;
     }
     
@@ -58,7 +57,7 @@ public class Guy extends Actor
     {
         if(isGrounded())
         {
-            setLocation(getX(), floor.getY());
+            setLocation(getX(), floor.getY() - 20);
             vSpeed = 0;
         }
         else
@@ -72,11 +71,13 @@ public class Guy extends Actor
     {
         if(isGrounded())
         {
-            jumpHeight = 30;
+            vSpeed = 0;
         }
         if(isGrounded() && Greenfoot.isKeyDown("W"))
         {
-            setLocation(getX(), getY() - jumpHeight);
+            vSpeed = -30;
+            setLocation(getX(), getY() + vSpeed);
+            vSpeed += 21;
         }
     }
 }
