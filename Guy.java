@@ -8,11 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Guy extends Actor
 {
+    Actor floor;
+    
     int speed = 5;
     int vSpeed = 0;
-    int vAcceleration = 1;
-    int jumpSpeed = 20;
-    int jumpDeceleration = 2;
+    int jumpHeight = 60;
     
     public Guy()
     {
@@ -48,35 +48,35 @@ public class Guy extends Actor
         }
     }
     
-    public boolean grounded()
+    public boolean isGrounded()
     {
-        Actor floor = getOneObjectAtOffset(0, 0, Floor.class);
+        floor = getOneObjectAtOffset(0, 0, Floor.class);
         return floor != null;
     }
     
     public void fall()
     {
-        if(grounded())
+        if(isGrounded())
         {
+            setLocation(getX(), floor.getY());
             vSpeed = 0;
         }
         else
         {
             setLocation(getX(), getY() + vSpeed);
-            vSpeed = vSpeed + vAcceleration;
+            vSpeed++;
         }
     }
     
     public void jump()
     {
-        if(Greenfoot.isKeyDown("W"))
+        if(isGrounded())
         {
-            if(grounded())
-            {
-                jumpSpeed = 20;
-            }
-            setLocation(getX(), getY() - jumpSpeed);
-            jumpSpeed = jumpSpeed - jumpDeceleration;
+            jumpHeight = 30;
+        }
+        if(isGrounded() && Greenfoot.isKeyDown("W"))
+        {
+            setLocation(getX(), getY() - jumpHeight);
         }
     }
 }
