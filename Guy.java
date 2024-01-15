@@ -11,12 +11,16 @@ public class Guy extends Actor
     int speed = 5;
     int vSpeed = 0;
     int vAcceleration = 1;
+    int jumpSpeed = 20;
+    int jumpDeceleration = 2;
     
     public Guy()
     {
-        GreenfootImage guyImage = new GreenfootImage("Drawing.png");
-        guyImage.scale(30, 30);
-        setImage(guyImage);
+        GreenfootImage guyImage = new GreenfootImage(40, 40);
+        guyImage.setColor(Color.GREEN);
+        guyImage.drawOval(0, 0, 40, 40);
+        guyImage.fillOval(0, 0, 40, 40);
+        this.setImage(guyImage);
     }
     
     /**
@@ -26,6 +30,7 @@ public class Guy extends Actor
     public void act()
     {
         fall();
+        jump();
         moveKeys();
     }
     
@@ -45,7 +50,7 @@ public class Guy extends Actor
     
     public boolean grounded()
     {
-        Actor floor = getOneObjectAtOffset(0, getY() / 80, Floor.class);
+        Actor floor = getOneObjectAtOffset(0, 0, Floor.class);
         return floor != null;
     }
     
@@ -59,6 +64,19 @@ public class Guy extends Actor
         {
             setLocation(getX(), getY() + vSpeed);
             vSpeed = vSpeed + vAcceleration;
+        }
+    }
+    
+    public void jump()
+    {
+        if(Greenfoot.isKeyDown("W"))
+        {
+            if(grounded())
+            {
+                jumpSpeed = 20;
+            }
+            setLocation(getX(), getY() - jumpSpeed);
+            jumpSpeed = jumpSpeed - jumpDeceleration;
         }
     }
 }
