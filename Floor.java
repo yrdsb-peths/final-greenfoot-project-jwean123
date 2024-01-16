@@ -16,7 +16,7 @@ public class Floor extends Actor
     public Floor()
     {
         GreenfootImage floorImage = new GreenfootImage("floor.png");
-        floorImage.scale(100, 60);
+        floorImage.scale(200, 20);
         this.setImage(floorImage);
     }
     

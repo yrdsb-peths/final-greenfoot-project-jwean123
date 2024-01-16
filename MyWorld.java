@@ -22,6 +22,6 @@ public class MyWorld extends World
         addObject(guy, getWidth() / 2, getHeight() / 2);
         
         floor = new Floor();
-        addObject(floor, getWidth() / 2, (getHeight() / 2) + 200);
+        addObject(floor, getWidth() / 2, (getHeight() / 2) + 300);
     }
 }
