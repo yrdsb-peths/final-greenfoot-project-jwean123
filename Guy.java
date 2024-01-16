@@ -76,6 +76,7 @@ public class Guy extends Actor
         //check for world edge
         if(getY() > getWorld().getHeight() - myHeight / 2)
         {
+            setLocation(getX(), getWorld().getHeight() - myHeight / 2);
             ySpeed = 0;
             isGrounded = true;
         }
