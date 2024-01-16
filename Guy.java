@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Guy extends Actor
 {
+    Actor gun;
+    
     Actor floor;
     static final int gravity = 2;
     static final int jumpForce = 25;
@@ -95,10 +97,9 @@ public class Guy extends Actor
         }
         
         //jumping functionality
-        if(isGrounded && Greenfoot.isKeyDown("W"))
+        if(isGrounded && Greenfoot.isKeyDown("space"))
         {
             ySpeed -= jumpForce;
         }
     }
-    
 }
