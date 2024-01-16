@@ -12,7 +12,6 @@ public class Guy extends Actor
     
     int speed = 5;
     int vSpeed = 0;
-    Hands hands;
     
     public Guy()
     {
@@ -20,12 +19,6 @@ public class Guy extends Actor
         guyImage.scale(60, 60);
         this.setImage(guyImage);
         
-        if(this.getWorld() != null)
-        {
-            hands = new Hands();
-            getWorld().addObject(hands, 100, 100);
-
-        }
     }
     /**
      * Act - do whatever the guy wants to do. This method is called whenever
