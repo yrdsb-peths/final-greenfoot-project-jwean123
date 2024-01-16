@@ -22,6 +22,11 @@ public class Guy extends Actor
         
         hands = new Hands();
         //getWorld().addObject(hands, 20, 20);
+        if(this.getWorld() != null)
+        {
+            hands = new Hands();
+            getWorld().addObject(hands, 100, 100);
+        }
     }
     
     /**
