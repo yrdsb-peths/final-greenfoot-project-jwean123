@@ -36,6 +36,13 @@ public class MyWorld extends World
         makeFloor(200, 10, getWidth() / 3 * 2, getHeight() - 500);
         //Sixth floor
         makeFloor(200, 10, getWidth() / 2, getHeight() - 600);
+        
+        //More random floor tiles
+        makeFloor(130, 10, 200, getHeight() - 550);
+        makeFloor(130, 10, 200, getHeight() - 350);
+        
+        makeFloor(60, 10, getWidth() - 200, getHeight() - 350);
+        makeFloor(60, 10, getWidth() - 200, getHeight() - 150);
     }
     
     public void makeFloor(int width, int height, int x, int y)
