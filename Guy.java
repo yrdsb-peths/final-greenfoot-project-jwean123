@@ -20,19 +20,18 @@ public class Guy extends Actor
         guyImage.scale(60, 60);
         this.setImage(guyImage);
         
-        hands = new Hands();
-        //getWorld().addObject(hands, 20, 20);
         if(this.getWorld() != null)
         {
             hands = new Hands();
             getWorld().addObject(hands, 100, 100);
+
         }
     }
-    
     /**
      * Act - do whatever the guy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
     public void act()
     {
         fall();
