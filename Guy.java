@@ -28,22 +28,37 @@ public class Guy extends Actor
     public void act()
     {
         fall();
-        jump();
-        moveKeys();
+        jumpKey();
+        moveHorizontally();
     }
     
     
-    public void moveKeys()
+    public void moveHorizontally()
     {
-        MyWorld world = (MyWorld) getWorld();
+        int myWidth = getImage().getWidth();
+        int dx = 0; //for the direction of movement
+        
+        //choose if moving left or right
         
         if(Greenfoot.isKeyDown("A"))
         {
-            move(-speed);
+            dx--;
         }
         if(Greenfoot.isKeyDown("D"))
         {
-            move(speed);
+            dx++;
+        }
+        
+        //actual movement left and right
+        setLocation(getX() + dx * speed, getY());
+        
+        if(getX() < myWidth / 2)
+        {
+            setLocation(myWidth / 2, getY());
+        }
+        if(getX() > getWorld().getWidth() - myWidth / 2)
+        {
+            setLocation(getWorld().getWidth() - myWidth / 2, getY());
         }
     }
     
@@ -67,7 +82,7 @@ public class Guy extends Actor
         }
     }
     
-    public void jump()
+    public void jumpKey()
     {
         if(isGrounded())
         {
