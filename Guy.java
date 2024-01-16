@@ -10,7 +10,7 @@ public class Guy extends Actor
 {
     Actor floor;
     static final int gravity = 2;
-    static final int jumpForce = 22;
+    static final int jumpForce = 25;
     
     int walkSpeed = 5;
     int ySpeed = 0;
