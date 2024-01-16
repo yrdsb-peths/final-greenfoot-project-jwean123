@@ -15,10 +15,10 @@ public class Floor extends Actor
     
     public Floor()
     {
-        GreenfootImage floorImage = new GreenfootImage(200, 40);
+        GreenfootImage floorImage = new GreenfootImage(200, 30);
         floorImage.setColor(Color.BLUE);
-        floorImage.drawRect(20, 20, 200, 40);
-        floorImage.fillRect(20, 20, 200, 40);
+        floorImage.drawRect(20, 20, 200, 30);
+        floorImage.fillRect(20, 20, 200, 30);
         this.setImage(floorImage);
     }
     

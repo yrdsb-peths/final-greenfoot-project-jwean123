@@ -84,7 +84,7 @@ public class Guy extends Actor
         {
             vSpeed = -30;
             setLocation(getX(), getY() + vSpeed);
-            vSpeed += 21;
+            vSpeed += 20;
         }
     }
 }
