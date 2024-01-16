@@ -10,7 +10,7 @@ public class Guy extends Actor
 {
     Actor floor;
     
-    int speed = 5;
+    int walkSpeed = 5;
     int vSpeed = 0;
     
     public Guy()
@@ -27,8 +27,6 @@ public class Guy extends Actor
     
     public void act()
     {
-        fall();
-        jumpKey();
         moveHorizontally();
     }
     
@@ -50,7 +48,7 @@ public class Guy extends Actor
         }
         
         //actual movement left and right
-        setLocation(getX() + dx * speed, getY());
+        setLocation(getX() + dx * walkSpeed, getY());
         
         if(getX() < myWidth / 2)
         {
@@ -62,37 +60,9 @@ public class Guy extends Actor
         }
     }
     
-    public boolean isGrounded()
+    public void moveVertically()
     {
-        floor = getOneObjectAtOffset(0, 30, Floor.class);
-        return floor != null;
+        int myHeight = getImage().getHeight();
     }
     
-    public void fall()
-    {
-        if(isGrounded())
-        {
-            setLocation(getX(), floor.getY() - 30);
-            vSpeed = 0;
-        }
-        else
-        {
-            setLocation(getX(), getY() + vSpeed);
-            vSpeed++;
-        }
-    }
-    
-    public void jumpKey()
-    {
-        if(isGrounded())
-        {
-            vSpeed = 0;
-        }
-        if(isGrounded() && Greenfoot.isKeyDown("W"))
-        {
-            vSpeed = -30;
-            setLocation(getX(), getY() + vSpeed);
-            vSpeed += 20;
-        }
-    }
 }
