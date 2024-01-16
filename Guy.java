@@ -91,6 +91,12 @@ public class Guy extends Actor
                 ySpeed = 0;
             }
         }
+        
+        //jumping functionality
+        if(isGrounded && Greenfoot.isKeyDown("W") || Greenfoot.isKeyDown("space"))
+        {
+            ySpeed -= jumpForce;
+        }
     }
     
 }
