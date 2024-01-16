@@ -19,9 +19,16 @@ public class MyWorld extends World
     {    
         super(1200, 900, 1);
         guy = new Guy();
-        addObject(guy, getWidth() / 2, getHeight() / 2);
+        addObject(guy, getWidth() / 2, getHeight() - 50);
         
-        floor = new Floor();
-        addObject(floor, getWidth() / 2, (getHeight() / 2) + 250);
+        makeFloor(200, 10, getWidth() / 3, getHeight() - 100);
+        makeFloor(200, 10, getWidth() / 3 * 2, getHeight() - 100);
+        makeFloor(200, 10, getWidth() / 2, getHeight() - 200);
+    }
+    
+    public void makeFloor(int width, int height, int x, int y)
+    {
+        floor = new Floor(width, height);
+        addObject(floor, x, y);
     }
 }

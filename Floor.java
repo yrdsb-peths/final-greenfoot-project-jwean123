@@ -13,10 +13,10 @@ public class Floor extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    public Floor()
+    public Floor(int width, int height)
     {
         GreenfootImage floorImage = new GreenfootImage("floor.png");
-        floorImage.scale(200, 10);
+        floorImage.scale(width, height);
         this.setImage(floorImage);
     }
     
