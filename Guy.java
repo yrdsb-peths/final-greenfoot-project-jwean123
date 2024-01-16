@@ -15,10 +15,8 @@ public class Guy extends Actor
     
     public Guy()
     {
-        GreenfootImage guyImage = new GreenfootImage(40, 40);
-        guyImage.setColor(Color.GREEN);
-        guyImage.drawOval(0, 0, 40, 40);
-        guyImage.fillOval(0, 0, 40, 40);
+        GreenfootImage guyImage = new GreenfootImage("green guy.png");
+        guyImage.scale(70, 70);
         this.setImage(guyImage);
     }
     
@@ -49,7 +47,7 @@ public class Guy extends Actor
     
     public boolean isGrounded()
     {
-        floor = getOneObjectAtOffset(0, 20, Floor.class);
+        floor = getOneObjectAtOffset(0, 15, Floor.class);
         return floor != null;
     }
     
@@ -57,7 +55,7 @@ public class Guy extends Actor
     {
         if(isGrounded())
         {
-            setLocation(getX(), floor.getY() - 20);
+            setLocation(getX(), floor.getY() - 15);
             vSpeed = 0;
         }
         else
