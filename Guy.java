@@ -18,7 +18,7 @@ public class Guy extends Actor
     public Guy()
     {
         GreenfootImage guyImage = new GreenfootImage("green guy.png");
-        guyImage.scale(60, 60);
+        guyImage.scale(40, 40);
         this.setImage(guyImage);
         
     }
@@ -53,6 +53,7 @@ public class Guy extends Actor
         //actual movement left and right
         setLocation(getX() + dx * walkSpeed, getY());
         
+        //world border check
         if(getX() < myWidth / 2)
         {
             setLocation(myWidth / 2, getY());
@@ -94,7 +95,7 @@ public class Guy extends Actor
         }
         
         //jumping functionality
-        if(isGrounded && Greenfoot.isKeyDown("W") || Greenfoot.isKeyDown("space"))
+        if(isGrounded && Greenfoot.isKeyDown("W"))
         {
             ySpeed -= jumpForce;
         }
