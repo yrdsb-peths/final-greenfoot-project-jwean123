@@ -17,7 +17,7 @@ public class MyWorld extends World
      */
     public MyWorld()
     {    
-        super(825, 550, 1);
+        super(1000, 700, 1);
         guy = new Guy();
         addObject(guy, getWidth() / 2, getHeight() / 2);
         
