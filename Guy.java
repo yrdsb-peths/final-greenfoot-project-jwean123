@@ -9,9 +9,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Guy extends Actor
 {
     Actor floor;
+    static final int gravity = 2;
+    static final int jumpForce = 20;
     
     int walkSpeed = 5;
-    int vSpeed = 0;
+    int ySpeed = 0;
     
     public Guy()
     {
@@ -28,6 +30,7 @@ public class Guy extends Actor
     public void act()
     {
         moveHorizontally();
+        moveVertically();
     }
     
     
@@ -63,6 +66,31 @@ public class Guy extends Actor
     public void moveVertically()
     {
         int myHeight = getImage().getHeight();
+        int dy;
+        boolean isGrounded = false;
+        
+        //falling
+        ySpeed += gravity;
+        setLocation(getX(), getY() + ySpeed);
+        
+        //check for world edge
+        if(getY() > getWorld().getHeight() - myHeight / 2)
+        {
+            ySpeed = 0;
+            isGrounded = true;
+        }
+        
+        //check for obstacles / floor
+        dy = (int) Math.signum(ySpeed); //whether you fall or go up
+        while(getOneIntersectingObject(null) != null)
+        {
+            setLocation(getX(), getY() - dy);
+            if(dy > 0)
+            {
+                isGrounded = true;
+                ySpeed = 0;
+            }
+        }
     }
     
 }
