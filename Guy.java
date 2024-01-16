@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Write a description of class guy here.
  * 
  * @author Juan
- * @version December 2023
+ * @version January 2024
  */
 public class Guy extends Actor
 {
