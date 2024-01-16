@@ -82,8 +82,9 @@ public class Guy extends Actor
             isGrounded = true;
         }
         
-        //check for obstacles / floor
         dy = (int) Math.signum(ySpeed); //whether you fall or go up
+        
+        //check for obstacles / floor
         while(getOneIntersectingObject(null) != null)
         {
             setLocation(getX(), getY() - dy);
