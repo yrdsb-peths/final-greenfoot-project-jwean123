@@ -86,8 +86,8 @@ public class Guy extends Actor
         
         //check for obstacles / floor
         dy = (int) Math.signum(ySpeed); //direction of movement
-        Gun gun = (Gun)getWorld().getObjects(Gun.class).get(0);
-        while(getOneIntersectingObject(null) != null && getOneIntersectingObject(null) != gun)
+        Floor floor = (Floor)getWorld().getObjects(Floor.class).get(0);
+        while(getOneIntersectingObject(null) != null && getOneIntersectingObject(null) == gun)
         {
             setLocation(getX(), getY() - dy);
             if(dy > 0)

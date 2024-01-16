@@ -23,7 +23,7 @@ public class MyWorld extends World
         addObject(guy, getWidth() / 2, getHeight() - 50);
         
         gun = new Gun();
-        addObject(gun, guy.getX() + 60, guy.getY() - 60);
+        addObject(gun, guy.getX(), guy.getY() - 15);
         
         //First floor
         makeFloor(200, 10, getWidth() / 3, getHeight() - 100);

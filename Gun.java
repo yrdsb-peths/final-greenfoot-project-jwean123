@@ -22,6 +22,6 @@ public class Gun extends Actor
     public void act()
     {
         Guy guy = (Guy)getWorld().getObjects(Guy.class).get(0);
-        setLocation(guy.getX() + 10, guy.getY() - 10);
+        setLocation(guy.getX(), guy.getY() - 15);
     }
 }
