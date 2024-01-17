@@ -15,11 +15,11 @@ public class Gun extends Actor
     public Gun()
     {
         gunImage1 = new GreenfootImage("gun1.png");
-        gunImage1.scale(80, 20);
+        gunImage1.scale(60, 15);
         this.setImage(gunImage1);
         
         gunImage2 = new GreenfootImage("gun2.png");
-        gunImage2.scale(80, 20);
+        gunImage2.scale(60, 15);
     }
     
     /**

@@ -29,7 +29,7 @@ public class Guy extends Actor
     public Guy()
     {
         GreenfootImage guyImage = new GreenfootImage("green guy.png");
-        guyImage.scale(40, 40);
+        guyImage.scale(30, 30);
         this.setImage(guyImage);
     }
     /**
