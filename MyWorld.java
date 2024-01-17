@@ -25,7 +25,7 @@ public class MyWorld extends World
         addObject(guy, getWidth() / 2, getHeight() - 50);
         
         gun = new Gun();
-        addObject(gun, guy.getX(), guy.getY());
+        addObject(gun, guy.getX() - guy.getImage().getWidth() / 2, guy.getY());
         
         
         

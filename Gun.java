@@ -30,7 +30,7 @@ public class Gun extends Actor
     {
         //Follow guy
         guy = (Guy)getWorld().getObjects(Guy.class).get(0);
-        setLocation(guy.getX(), guy.getY());
+        setLocation(guy.getX() - guy.getImage().getWidth() / 2, guy.getY());
         
         //Point in cursor direction
         MouseInfo mouse = Greenfoot.getMouseInfo();
