@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Guy extends Actor
 {
+    MouseInfo mouse;
+    
     boolean isGrounded;
     
     Actor gun;
@@ -38,6 +40,7 @@ public class Guy extends Actor
         moveHorizontally();
         moveVertically();
         mouseStuff();
+        shooting();
     }
     
     
@@ -92,7 +95,7 @@ public class Guy extends Actor
          * Floor collision!!
          */
         dy = (int) Math.signum(ySpeed); //whether you fall or go up
-        while(getOneIntersectingObject(null) != null)
+        while(isTouching(Floor.class))
         {
             setLocation(getX(), getY() - dy);
             if(dy > 0)
@@ -112,10 +115,26 @@ public class Guy extends Actor
     
     public void mouseStuff()
     {
-        MouseInfo mouse = Greenfoot.getMouseInfo();
+        mouse = Greenfoot.getMouseInfo();
         if(mouse != null)
         {
             turnTowards(mouse.getX(), mouse.getY());
+        }
+        
+        
+    }
+    
+    public void shooting()
+    {
+        if(mouse != null)
+        {
+            if(mouse.getButton() == 1) //if left click
+            {
+                Bullet bullet = new Bullet();
+                getWorld().addObject(bullet, getX(), getY());
+                bullet.turnTowards(mouse.getX(), mouse.getY());
+                bullet.move(10);
+            }
         }
     }
 }
