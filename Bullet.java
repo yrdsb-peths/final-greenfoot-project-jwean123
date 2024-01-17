@@ -49,5 +49,7 @@ public class Bullet extends SmoothMover
         {
             getWorld().removeObject(this);
         }
+        
+        //adding trail
     }
 }
