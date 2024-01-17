@@ -21,6 +21,7 @@ public class Zombie extends Actor
      * stuff that I copied over from the Guy class
      */
     boolean isGrounded;
+    boolean isMoving;
     
     Actor floor;
     static final int gravity = 2;
@@ -92,10 +93,6 @@ public class Zombie extends Actor
     
     public void newAction()
     {
-        /**
-         * Choice 3 is jumping, so I made it so that it'll only jump once rather
-         * than continously jump for 5 seconds
-         */
         if(actionTimer.millisElapsed() < 200)
         {
             return;
@@ -171,7 +168,6 @@ public class Zombie extends Actor
         if(isGrounded && actionChoice == 3)
         {
             ySpeed -= jumpForce;
-            actionTimer.mark();
         }
     }
 }
