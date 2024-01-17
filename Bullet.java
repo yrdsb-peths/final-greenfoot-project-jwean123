@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bullet extends Actor
 {
+    MouseInfo mouse;
+    Guy guy;
+    
     public Bullet()
     {
         GreenfootImage bulletImage = new GreenfootImage("black square.png");
@@ -20,6 +23,6 @@ public class Bullet extends Actor
      */
     public void act()
     {
-        // Add your action code here.
+        move(50);
     }
 }

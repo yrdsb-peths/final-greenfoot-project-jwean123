@@ -18,17 +18,16 @@ public class Guy extends Actor
     static final int gravity = 2;
     static final int jumpForce = 25;
     
-    int walkSpeed = 5;
+    int walkSpeed = 7;
     int ySpeed = 0;
     
-    int dx;
-    int dy;
+    int dx; //x-axis directional movement
+    int dy; //y-axis directional movement
     public Guy()
     {
         GreenfootImage guyImage = new GreenfootImage("green guy.png");
         guyImage.scale(40, 40);
         this.setImage(guyImage);
-        
     }
     /**
      * Act - do whatever the guy wants to do. This method is called whenever
@@ -122,7 +121,6 @@ public class Guy extends Actor
                 Bullet bullet = new Bullet();
                 getWorld().addObject(bullet, getX(), getY());
                 bullet.turnTowards(mouse.getX(), mouse.getY());
-                bullet.move(10);
             }
         }
     }
