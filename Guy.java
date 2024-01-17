@@ -123,7 +123,7 @@ public class Guy extends Actor
             {
                 pew.play();
                 Bullet bullet = new Bullet();
-                getWorld().addObject(bullet, getX(), getY());
+                getWorld().addObject(bullet, getX(), getY()  - getImage().getHeight() / 2);
                 bullet.turnTowards(mouse.getX(), mouse.getY());
             }
         }

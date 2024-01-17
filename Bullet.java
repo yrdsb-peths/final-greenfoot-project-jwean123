@@ -31,12 +31,9 @@ public class Bullet extends Actor
         if(isTouching(Floor.class))
         {
             getWorld().removeObject(this);
-        }
-            
-        
+        }    
         //check for world edges
-        
-        if(getX() < getImage().getWidth() / 2)
+        else if(getX() < getImage().getWidth() / 2)
         {
             getWorld().removeObject(this);
         }
