@@ -37,6 +37,7 @@ public class Guy extends Actor
     {
         moveHorizontally();
         moveVertically();
+        mouseStuff();
     }
     
     
@@ -106,6 +107,15 @@ public class Guy extends Actor
         if(isGrounded && Greenfoot.isKeyDown("space"))
         {
             ySpeed -= jumpForce;
+        }
+    }
+    
+    public void mouseStuff()
+    {
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        if(mouse != null)
+        {
+            turnTowards(mouse.getX(), mouse.getY());
         }
     }
 }
