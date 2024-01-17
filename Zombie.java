@@ -74,10 +74,47 @@ public class Zombie extends Actor
     
     /**
      * Animate the zombie
+     * 
+     * Seperate image index for idle and moving animation because moving animation
+     * has more frames, thus causing out of bounds exception when switching to idle
+     * animation
      */
+    int idleIndex = 0;
+    int movingIndex = 0;
     public void animateZombie()
     {
+        if(animationTimer.millisElapsed() < 100)
+        {
+            return;
+        }
+        animationTimer.mark();
         
+        if(facingRight)
+        {
+            if(!isMoving)
+            {
+                setImage(rightIdle[idleIndex]);
+                idleIndex = (idleIndex + 1) % rightIdle.length;
+            }
+            else
+            {
+                setImage(rightMoving[movingIndex]);
+                movingIndex = (movingIndex + 1) % rightMoving.length;
+            }
+        }
+        else
+        {
+            if(!isMoving)
+            {
+                setImage(leftIdle[idleIndex]);
+                idleIndex = (idleIndex + 1) % leftIdle.length;
+            }
+            else
+            {
+                setImage(leftMoving[movingIndex]); 
+                movingIndex = (movingIndex + 1) % leftMoving.length;
+            }
+        }
     }
     
     /**
@@ -89,6 +126,7 @@ public class Zombie extends Actor
         newAction();
         moveHorizontally();
         moveVertically();
+        animateZombie();
     }
     
     public void newAction()
@@ -99,7 +137,7 @@ public class Zombie extends Actor
         }
         actionTimer.mark();
         
-        actionChoice = Greenfoot.getRandomNumber(4);
+        actionChoice = Greenfoot.getRandomNumber(5);
     }
     
     public void moveHorizontally()
@@ -112,10 +150,17 @@ public class Zombie extends Actor
         if(actionChoice == 1)
         {
             dx--;
+            isMoving = true;
         }
         if(actionChoice == 2)
         {
             dx++;
+            isMoving = true;
+        }
+        if(actionChoice == 4)
+        {
+            dx = 0;
+            isMoving = false;
         }
         
         //actual movement left and right
@@ -168,6 +213,7 @@ public class Zombie extends Actor
         if(isGrounded && actionChoice == 3)
         {
             ySpeed -= jumpForce;
+            isMoving = true;
         }
     }
 }
