@@ -29,11 +29,19 @@ public class Bullet extends Actor
         
         //check for world edges
         
-        if(getY() >= world.getHeight())
+        if(getX() < getImage().getWidth() / 2)
         {
             getWorld().removeObject(this);
         }
-        if(getY() < getImage().getHeight())
+        else if(getX() > getWorld().getWidth() - getImage().getWidth() / 2)
+        {
+            getWorld().removeObject(this);
+        }
+        else if(getY() < getImage().getWidth() / 2)
+        {
+            getWorld().removeObject(this);
+        }
+        else if(getY() > getWorld().getHeight() - getImage().getHeight() / 2)
         {
             getWorld().removeObject(this);
         }
