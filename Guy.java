@@ -23,6 +23,9 @@ public class Guy extends Actor
     
     int dx; //x-axis directional movement
     int dy; //y-axis directional movement
+    
+    GreenfootSound pew = new GreenfootSound("PewPewPew.mp3");
+    
     public Guy()
     {
         GreenfootImage guyImage = new GreenfootImage("green guy.png");
@@ -116,8 +119,9 @@ public class Guy extends Actor
         mouse = Greenfoot.getMouseInfo();
         if(mouse != null)
         {
-            if(mouse.getButton() == 1) //if left click
+            if(Greenfoot.mousePressed(null)) //if left click
             {
+                pew.play();
                 Bullet bullet = new Bullet();
                 getWorld().addObject(bullet, getX(), getY());
                 bullet.turnTowards(mouse.getX(), mouse.getY());
