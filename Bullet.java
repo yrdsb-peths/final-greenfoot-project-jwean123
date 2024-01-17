@@ -25,7 +25,7 @@ public class Bullet extends Actor
     {
         MyWorld world = (MyWorld) getWorld();
         
-        move(50);
+        move(100);
         
         //check for world edges
         
