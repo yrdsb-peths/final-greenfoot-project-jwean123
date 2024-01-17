@@ -60,7 +60,6 @@ public class Bullet extends SmoothMover
                 getWorld().removeObject(bulletTrail);
             }
             getWorld().addObject(bulletTrail, getX(), getY());
-            bulletTrail.turnTowards(getX(), getY());
         }
     }
 }
