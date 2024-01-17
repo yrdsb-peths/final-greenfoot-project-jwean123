@@ -8,11 +8,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Gun extends Actor
 {
+    Guy guy;
+    GreenfootImage gunImage1;
+    GreenfootImage gunImage2;
+    
     public Gun()
     {
-        GreenfootImage gunImage = new GreenfootImage("gun.png");
-        gunImage.scale(80, 20);
-        this.setImage(gunImage);
+        gunImage1 = new GreenfootImage("gun1.png");
+        gunImage1.scale(80, 20);
+        this.setImage(gunImage1);
+        
+        gunImage2 = new GreenfootImage("gun2.png");
+        gunImage2.scale(80, 20);
     }
     
     /**
@@ -21,6 +28,25 @@ public class Gun extends Actor
      */
     public void act()
     {
-        // Add your action code here.
+        //Follow guy
+        guy = (Guy)getWorld().getObjects(Guy.class).get(0);
+        setLocation(guy.getX(), guy.getY());
+        
+        //Point in cursor direction
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        if(mouse != null)
+        {
+            turnTowards(mouse.getX(), mouse.getY());
+        }
+        
+        //Stay upright
+        if(getRotation() > 0)
+        {
+            this.setImage(gunImage1);
+        }
+        else if(getRotation() > 180)
+        {
+            this.setImage(gunImage2);
+        }
     }
 }
