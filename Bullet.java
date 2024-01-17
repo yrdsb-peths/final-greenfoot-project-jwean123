@@ -24,5 +24,23 @@ public class Bullet extends Actor
     public void act()
     {
         move(50);
+        //check horizontal world edge
+        if(getX() < getImage().getWidth() / 2)
+        {
+            getWorld().removeObject(this);
+        }
+        if(getX() > getWorld().getWidth() - getImage().getWidth() / 2)
+        {
+            getWorld().removeObject(this);
+        }
+        //check vertical world edge
+        if(getY() > getWorld().getHeight() - getImage().getHeight() / 2)
+        {
+            getWorld().removeObject(this);
+        }
+        if(getY() < getImage().getWidth() / 2)
+        {
+            getWorld().removeObject(this);
+        }    
     }
 }
