@@ -90,7 +90,16 @@ public class Guy extends Actor
         /*
          * Floor collision!!
          */
-        
+        dy = (int) Math.signum(ySpeed); //whether you fall or go up
+        while(getOneIntersectingObject(null) == floor)
+        {
+            setLocation(getX(), getY() - dy);
+            if(dy > 0)
+            {
+                ySpeed = 0;
+                isGrounded = true;
+            }
+        }
         
         
         //jumping functionality
