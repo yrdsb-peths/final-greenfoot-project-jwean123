@@ -10,8 +10,8 @@ public class Gun extends Actor
 {
     public Gun()
     {
-        GreenfootImage gunImage = new GreenfootImage("game rifle.png");
-        gunImage.scale(100, 30);
+        GreenfootImage gunImage = new GreenfootImage("black square.png");
+        gunImage.scale(20, 10);
         this.setImage(gunImage);
     }
     
@@ -22,6 +22,6 @@ public class Gun extends Actor
     public void act()
     {
         Guy guy = (Guy)getWorld().getObjects(Guy.class).get(0);
-        setLocation(guy.getX(), guy.getY() - 15);
+        setLocation(guy.getX(), guy.getY() - 45);
     }
 }
