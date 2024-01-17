@@ -6,15 +6,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Juan
  * @version January 2024
  */
-public class Bullet extends Actor
+public class Bullet extends SmoothMover
 {
     MouseInfo mouse;
     Guy guy;
     
     public Bullet()
     {
-        GreenfootImage bulletImage = new GreenfootImage("black square.png");
-        bulletImage.scale(15, 5);
+        GreenfootImage bulletImage = new GreenfootImage(15, 7);
+        bulletImage.fill();
         this.setImage(bulletImage);
     }
     /**

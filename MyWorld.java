@@ -12,6 +12,8 @@ public class MyWorld extends World
     Floor floor;
     Gun gun;
     
+    static final int floorWidth = 200;
+    static final int floorHeight = 20;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -25,28 +27,18 @@ public class MyWorld extends World
         gun = new Gun();
         addObject(gun, guy.getX(), guy.getY());
         
-        //First floor
-        makeFloor(200, 10, getWidth() / 3, getHeight() - 100);
-        makeFloor(200, 10, getWidth() / 3 * 2, getHeight() - 100);
-        //Second floor
-        makeFloor(200, 10, getWidth() / 2, getHeight() - 200);
-        //Third floor
-        makeFloor(200, 10, getWidth() / 3, getHeight() - 300);
-        makeFloor(200, 10, getWidth() / 3 * 2, getHeight() - 300);
-        //Fourth floor
-        makeFloor(200, 10, getWidth() / 2, getHeight() - 400);
-        //Fifth floor
-        makeFloor(200, 10, getWidth() / 3, getHeight() - 500);
-        makeFloor(200, 10, getWidth() / 3 * 2, getHeight() - 500);
-        //Sixth floor
-        makeFloor(200, 10, getWidth() / 2, getHeight() - 600);
         
-        //More random floor tiles
-        makeFloor(130, 10, 200, getHeight() - 550);
-        makeFloor(130, 10, 200, getHeight() - 350);
         
-        makeFloor(60, 10, getWidth() - 200, getHeight() - 350);
-        makeFloor(60, 10, getWidth() - 200, getHeight() - 150);
+        //Making tiles
+        for(int i = 0; i < 4; i++)
+        {
+            //middle tiles
+            makeFloor(floorWidth, floorHeight, getWidth() / 2, getHeight() - 200 - (200 * i));
+            //left and right tiles
+            makeFloor(floorWidth, floorHeight, getWidth() / 3, getHeight() - 100 - (200 * i));
+            makeFloor(floorWidth, floorHeight, getWidth() / 3 * 2, getHeight() - 100 - (200 * i));
+        }
+        
     }
     
     public void makeFloor(int width, int height, int x, int y)
