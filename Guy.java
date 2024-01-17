@@ -85,16 +85,6 @@ public class Guy extends Actor
         }
         
         //check for obstacles / floor
-        dy = (int) Math.signum(ySpeed); //direction of movement
-        while(getOneIntersectingObject(null) != null)
-        {
-            setLocation(getX(), getY() - dy);
-            if(dy > 0)
-            {
-                isGrounded = true;
-                ySpeed = 0;
-            }
-        }
         
         //jumping functionality
         if(isGrounded && Greenfoot.isKeyDown("space"))
