@@ -10,7 +10,6 @@ public class MyWorld extends World
 {
     Guy guy;
     Floor floor;
-    Gun gun;
     
     /**
      * Constructor for objects of class MyWorld.
@@ -21,9 +20,6 @@ public class MyWorld extends World
         super(1200, 900, 1);
         guy = new Guy();
         addObject(guy, getWidth() / 2, getHeight() - 50);
-        
-        gun = new Gun();
-        addObject(gun, guy.getX(), guy.getY() - 45);
         
         //First floor
         makeFloor(200, 10, getWidth() / 3, getHeight() - 100);
