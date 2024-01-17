@@ -31,6 +31,9 @@ public class Zombie extends Actor
     
     int dx; //x-axis directional movement
     int dy; //y-axis directional movement
+    
+    SimpleTimer actionTimer = new SimpleTimer();
+    int actionChoice = 0;
     /**
      * Constructor
      */
@@ -61,6 +64,7 @@ public class Zombie extends Actor
         }
         
         animationTimer.mark();
+        actionTimer.mark();
         
         //Initial zombie image
         setImage(rightIdle[0]);
@@ -81,6 +85,93 @@ public class Zombie extends Actor
      */
     public void act()
     {
-        // Add your action code here.
+        newAction();
+        moveHorizontally();
+        moveVertically();
+    }
+    
+    public void newAction()
+    {
+        /**
+         * Choice 3 is jumping, so I made it so that it'll only jump once rather
+         * than continously jump for 5 seconds
+         */
+        if(actionTimer.millisElapsed() < 500)
+        {
+            return;
+        }
+        actionTimer.mark();
+        
+        actionChoice = Greenfoot.getRandomNumber(4);
+    }
+    
+    public void moveHorizontally()
+    {
+        int myWidth = getImage().getWidth();
+        dx = 0; //for the direction of movement
+        
+        //choose if moving left or right
+        
+        if(actionChoice == 1)
+        {
+            dx--;
+        }
+        if(actionChoice == 2)
+        {
+            dx++;
+        }
+        
+        //actual movement left and right
+        setLocation(getX() + dx * walkSpeed, getY());
+        
+        //world border check
+        if(getX() < myWidth / 2)
+        {
+            setLocation(myWidth / 2, getY());
+        }
+        if(getX() > getWorld().getWidth() - myWidth / 2)
+        {
+            setLocation(getWorld().getWidth() - myWidth / 2, getY());
+        }
+    }
+    
+    public void moveVertically()
+    {
+        int myHeight = getImage().getHeight();
+        isGrounded = false;
+        
+        //falling
+        ySpeed += gravity;
+        setLocation(getX(), getY() + ySpeed);
+        
+        //check for world edge
+        if(getY() > getWorld().getHeight() - myHeight / 2)
+        {
+            setLocation(getX(), getWorld().getHeight() - myHeight / 2);
+            ySpeed = 0;
+            isGrounded = true;
+        }
+        
+        /*
+         * Floor collision!!
+         */
+        dy = (int) Math.signum(ySpeed); //whether you fall or go up
+        while(isTouching(Floor.class))
+        {
+            setLocation(getX(), getY() - dy);
+            if(dy > 0)
+            {
+                ySpeed = 0;
+                isGrounded = true;
+            }
+        }
+        
+        
+        //jumping functionality
+        if(isGrounded && actionChoice == 3)
+        {
+            ySpeed -= jumpForce;
+            actionTimer.mark();
+        }
     }
 }

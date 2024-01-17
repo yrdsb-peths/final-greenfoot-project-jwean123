@@ -11,6 +11,7 @@ public class MyWorld extends World
     Guy guy;
     Floor floor;
     Gun gun;
+    Zombie zombie;
     
     static final int floorWidth = 200;
     static final int floorHeight = 20;
@@ -27,7 +28,8 @@ public class MyWorld extends World
         gun = new Gun();
         addObject(gun, guy.getX() - guy.getImage().getWidth() / 2, guy.getY());
         
-        
+        zombie = new Zombie();
+        addObject(zombie, getWidth() / 3 * 2, getHeight() - 50);
         
         //Making tiles
         for(int i = 0; i < 4; i++)
