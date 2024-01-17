@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Guy extends Actor
 {
+    boolean isGrounded;
+    
     Actor gun;
     
     Actor floor;
@@ -17,6 +19,8 @@ public class Guy extends Actor
     int walkSpeed = 5;
     int ySpeed = 0;
     
+    int dx;
+    int dy;
     public Guy()
     {
         GreenfootImage guyImage = new GreenfootImage("green guy.png");
@@ -39,7 +43,7 @@ public class Guy extends Actor
     public void moveHorizontally()
     {
         int myWidth = getImage().getWidth();
-        int dx = 0; //for the direction of movement
+        dx = 0; //for the direction of movement
         
         //choose if moving left or right
         
@@ -69,8 +73,7 @@ public class Guy extends Actor
     public void moveVertically()
     {
         int myHeight = getImage().getHeight();
-        int dy;
-        boolean isGrounded = false;
+        isGrounded = false;
         
         //falling
         ySpeed += gravity;
@@ -84,17 +87,20 @@ public class Guy extends Actor
             isGrounded = true;
         }
         
-        //check for obstacles / floor
-        dy = (int) Math.signum(ySpeed); //direction of movement
+        /*
+         * Floor collision!!
+         */
+        dy = (int) Math.signum(ySpeed); //whether you fall or go up
         while(getOneIntersectingObject(null) != null)
         {
             setLocation(getX(), getY() - dy);
             if(dy > 0)
             {
-                isGrounded = true;
                 ySpeed = 0;
+                isGrounded = true;
             }
         }
+        
         
         //jumping functionality
         if(isGrounded && Greenfoot.isKeyDown("space"))
