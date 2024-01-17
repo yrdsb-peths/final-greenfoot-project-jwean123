@@ -50,16 +50,5 @@ public class Bullet extends SmoothMover
         {
             getWorld().removeObject(this);
         }
-        
-        //adding trail
-        if(this.getWorld() != null)
-        {
-            Trail bulletTrail = new Trail();
-            if(this.getWorld() == null)
-            {
-                getWorld().removeObject(bulletTrail);
-            }
-            getWorld().addObject(bulletTrail, getX(), getY());
-        }
     }
 }
