@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Zombie here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Juan
+ * @version January 2024
  */
 public class Zombie extends Actor
 {
@@ -16,6 +16,21 @@ public class Zombie extends Actor
     private boolean facingRight;
     SimpleTimer animationTimer = new SimpleTimer();
     
+    
+    /**
+     * stuff that I copied over from the Guy class
+     */
+    boolean isGrounded;
+    
+    Actor floor;
+    static final int gravity = 2;
+    static final int jumpForce = 25;
+    
+    int walkSpeed = 7;
+    int ySpeed = 0;
+    
+    int dx; //x-axis directional movement
+    int dy; //y-axis directional movement
     /**
      * Constructor
      */
