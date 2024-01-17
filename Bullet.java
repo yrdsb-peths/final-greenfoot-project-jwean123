@@ -10,6 +10,7 @@ public class Bullet extends SmoothMover
 {
     MouseInfo mouse;
     Guy guy;
+    int speed = 100;
     
     public Bullet()
     {
@@ -25,7 +26,7 @@ public class Bullet extends SmoothMover
     {
         MyWorld world = (MyWorld) getWorld();
         
-        move(100);
+        move(speed);
         
         //check for platforms
         if(isTouching(Floor.class))
@@ -51,5 +52,15 @@ public class Bullet extends SmoothMover
         }
         
         //adding trail
+        if(this.getWorld() != null)
+        {
+            Trail bulletTrail = new Trail();
+            if(this.getWorld() == null)
+            {
+                getWorld().removeObject(bulletTrail);
+            }
+            getWorld().addObject(bulletTrail, getX(), getY());
+            bulletTrail.turnTowards(getX(), getY());
+        }
     }
 }

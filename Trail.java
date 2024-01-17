@@ -23,7 +23,7 @@ public class Trail extends Actor
         trailTimer.mark();
         
         //Initial trail image
-        setImage(trailImage[1]);
+        setImage(trailImage[3]);
     }
     
     /**
