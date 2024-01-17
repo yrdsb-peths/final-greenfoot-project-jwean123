@@ -96,7 +96,7 @@ public class Zombie extends Actor
          * Choice 3 is jumping, so I made it so that it'll only jump once rather
          * than continously jump for 5 seconds
          */
-        if(actionTimer.millisElapsed() < 500)
+        if(actionTimer.millisElapsed() < 200)
         {
             return;
         }
