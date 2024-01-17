@@ -27,6 +27,13 @@ public class Bullet extends Actor
         
         move(100);
         
+        //check for platforms
+        if(isTouching(Floor.class))
+        {
+            getWorld().removeObject(this);
+        }
+            
+        
         //check for world edges
         
         if(getX() < getImage().getWidth() / 2)
