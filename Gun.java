@@ -40,13 +40,13 @@ public class Gun extends Actor
         }
         
         //Stay upright
-        if(getRotation() > 0)
-        {
-            this.setImage(gunImage1);
-        }
-        else if(getRotation() > 180)
+        if(this.getRotation() >= 90 && this.getRotation() < 270)
         {
             this.setImage(gunImage2);
+        }
+        else
+        {
+            this.setImage(gunImage1);
         }
     }
 }
