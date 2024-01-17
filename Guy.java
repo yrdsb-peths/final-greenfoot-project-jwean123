@@ -39,7 +39,6 @@ public class Guy extends Actor
     {
         moveHorizontally();
         moveVertically();
-        mouseStuff();
         shooting();
     }
     
@@ -113,19 +112,9 @@ public class Guy extends Actor
         }
     }
     
-    public void mouseStuff()
-    {
-        mouse = Greenfoot.getMouseInfo();
-        if(mouse != null)
-        {
-            turnTowards(mouse.getX(), mouse.getY());
-        }
-        
-        
-    }
-    
     public void shooting()
     {
+        mouse = Greenfoot.getMouseInfo();
         if(mouse != null)
         {
             if(mouse.getButton() == 1) //if left click
