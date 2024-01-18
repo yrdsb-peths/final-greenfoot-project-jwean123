@@ -29,6 +29,7 @@ public class Label extends Actor
         this(Integer.toString(value), fontSize);
     }
     
+    
     /**
      * Create a new label, initialise it with the needed text and the font size 
      */
