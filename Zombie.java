@@ -268,4 +268,9 @@ public class Zombie extends Actor
             }
         }
     }
+    
+    public void increaseSpeed()
+    {
+        walkSpeed++;
+    }
 }

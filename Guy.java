@@ -147,7 +147,7 @@ public class Guy extends Actor
             if(isTouching(Zombie.class))
             {
                 dmgTick.mark();
-                life -= world.damageTaken;
+                life -= 10;
             }
         }
     }

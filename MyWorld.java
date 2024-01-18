@@ -13,8 +13,8 @@ public class MyWorld extends World
     /**
      * Changing Variables (that worsen as the game continues)
      */
-    int damageTaken = 10;
     
+    //Zombie walkspeed (written in the zombie class)
     private int spawnTime = 5000; //Milliseconds
     SimpleTimer spawnTimer = new SimpleTimer();
     
