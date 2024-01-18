@@ -8,13 +8,22 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
+    private boolean gameOver = false;
+    
+    /**
+     * Changing Variables (that worsen as the game continues)
+     */
+    int damageTaken = 10;
+    
+    private int spawnTime = 5000; //Milliseconds
+    SimpleTimer spawnTimer = new SimpleTimer();
+    
+    int spawnAmount = 3; //Maximum amount of zombies that can spawn at once
+    
     Guy guy;
     Floor floor;
     Gun gun;
     Zombie zombie;
-    
-    private int spawnTime = 5000; //Milliseconds
-    SimpleTimer spawnTimer = new SimpleTimer();
     
     private int score = 0;
     private int oldScore = score;
@@ -22,8 +31,6 @@ public class MyWorld extends World
     
     private int life = 100;
     Label lifeLabel;
-    
-    private boolean gameOver = false;
     
     static private final int floorWidth = 200;
     static private final int floorHeight = 20;
@@ -60,7 +67,8 @@ public class MyWorld extends World
             makeFloor(floorWidth, floorHeight, getWidth() / 3 * 2, getHeight() - 100 - (200 * i));
         }
         
-        makeZombie(1);
+        spawnTimer.mark();
+        makeZombie(2);
     }
     
     public void makeFloor(int width, int height, int x, int y)
@@ -87,5 +95,14 @@ public class MyWorld extends World
     public void act()
     {
         lifeLabel.setValue("life: " + guy.getLife());
+        if(spawnTimer.millisElapsed() < spawnTime)
+        {
+            return;
+        }
+        else
+        {
+            spawnTimer.mark();
+            makeZombie(Greenfoot.getRandomNumber(spawnAmount));
+        }
     }
 }

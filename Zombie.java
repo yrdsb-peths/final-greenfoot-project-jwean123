@@ -15,7 +15,7 @@ public class Zombie extends Actor
     GreenfootImage rightIdle[] = new GreenfootImage[4];
     GreenfootImage leftIdle[] = new GreenfootImage[4];
     
-    int health = 3;
+    private int health = 30;
     
     private boolean facingRight;
     SimpleTimer animationTimer = new SimpleTimer();
@@ -45,25 +45,25 @@ public class Zombie extends Actor
         for(int i = 0; i < rightMoving.length; i++)
         {
             rightMoving[i] = new GreenfootImage("images/Zombie/moving" + i + "Right.png");
-            rightMoving[i].scale(50, 60);
+            rightMoving[i].scale(45, 55);
         }
         
         for(int i = 0; i < leftMoving.length; i++)
         {
             leftMoving[i] = new GreenfootImage("images/Zombie/moving" + i + "Left.png");
-            leftMoving[i].scale(50,60);
+            leftMoving[i].scale(45, 55);
         }
         
         for(int i = 0; i < rightIdle.length; i++)
         {
             rightIdle[i] = new GreenfootImage("images/Zombie/Idle" + i + "Right.png");
-            rightIdle[i].scale(50,60);
+            rightIdle[i].scale(45, 55);
         }
         
         for(int i = 0; i < leftIdle.length; i++)
         {
             leftIdle[i] = new GreenfootImage("images/Zombie/Idle" + i + "Left.png");
-            leftIdle[i].scale(50,60);
+            leftIdle[i].scale(45, 55);
         }
         
         animationTimer.mark();
@@ -256,7 +256,7 @@ public class Zombie extends Actor
         MyWorld world = (MyWorld) getWorld();
         if(isTouching(Bullet.class))
         {
-            health-=1;
+            health -= 10;
             zombieHurt.play();
             if(health <= 0)
             {

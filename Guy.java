@@ -47,6 +47,7 @@ public class Guy extends Actor
         moveHorizontally();
         moveVertically();
         shooting();
+        takeDamage();
     }
     
     
@@ -136,7 +137,8 @@ public class Guy extends Actor
     
     public void takeDamage()
     {
-        if(dmgTick.millisElapsed() < 500) //How long before damage can be taken again
+        MyWorld world = (MyWorld) getWorld();
+        if(dmgTick.millisElapsed() < 1500) //How long before damage can be taken again
         {
             return;
         }
@@ -145,7 +147,7 @@ public class Guy extends Actor
             if(isTouching(Zombie.class))
             {
                 dmgTick.mark();
-                life--;
+                life -= world.damageTaken;
             }
         }
     }

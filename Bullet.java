@@ -10,7 +10,7 @@ public class Bullet extends SmoothMover
 {
     MouseInfo mouse;
     Guy guy;
-    int speed = 75;
+    int speed = 40;
     
     public Bullet()
     {
