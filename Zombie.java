@@ -15,7 +15,7 @@ public class Zombie extends Actor
     GreenfootImage rightIdle[] = new GreenfootImage[4];
     GreenfootImage leftIdle[] = new GreenfootImage[4];
     
-    int health = 2;
+    int health = 3;
     
     private boolean facingRight;
     SimpleTimer animationTimer = new SimpleTimer();
@@ -256,7 +256,7 @@ public class Zombie extends Actor
         MyWorld world = (MyWorld) getWorld();
         if(isTouching(Bullet.class))
         {
-            health--;
+            health-=1;
             zombieHurt.play();
             if(health <= 0)
             {

@@ -136,7 +136,7 @@ public class Guy extends Actor
     
     public void takeDamage()
     {
-        if(dmgTick.millisElapsed() < 2500) //How long before damage can be taken again
+        if(dmgTick.millisElapsed() < 500) //How long before damage can be taken again
         {
             return;
         }
@@ -144,8 +144,8 @@ public class Guy extends Actor
         {
             if(isTouching(Zombie.class))
             {
-                life -= 20;
                 dmgTick.mark();
+                life--;
             }
         }
     }
