@@ -112,7 +112,9 @@ public class MyWorld extends World
         
         if(guy.getLife() == 0)
         {
-           gameOver = true; 
+            Label endLabel = new Label("Game Over \n Nice Try!! \n [F] to quit", 100);
+            addObject(endLabel, getWidth() / 2, getHeight() / 2);
+            yowch.play(); 
         }
         lifeLabel.setValue("life: " + guy.getLife());
         if(spawnTimer.millisElapsed() < spawnTime)
@@ -129,17 +131,6 @@ public class MyWorld extends World
         {
             oldScore = score;
             increaseIntensity();
-        }
-    }
-    
-    public void gameEnded()
-    {
-        
-        if(gameOver = true)
-        {
-            Label endLabel = new Label("Game Over \n Nice Try!! \n [F] to quit", 40);
-            addObject(endLabel, getWidth() / 2, getHeight() / 2);
-            yowch.play();
         }
     }
 }
