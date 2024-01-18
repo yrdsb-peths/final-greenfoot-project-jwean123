@@ -14,11 +14,11 @@ public class MyWorld extends World
      * Changing Variables (that worsen as the game continues)
      */
     
-    //Zombie walkspeed (written in the zombie class)
+    int zombieSpeed = 5;
     private int spawnTime = 5000; //Milliseconds
     SimpleTimer spawnTimer = new SimpleTimer();
     
-    int spawnAmount = 3; //Maximum amount of zombies that can spawn at once
+    int spawnAmount = 4; //Maximum amount of zombies that can spawn at once
     
     Guy guy;
     Floor floor;
@@ -40,7 +40,7 @@ public class MyWorld extends World
      */
     public MyWorld()
     {    
-        super(1400, 900, 1);
+        super(1500, 900, 1);
         
         //making guy to play as
         guy = new Guy();
@@ -92,6 +92,13 @@ public class MyWorld extends World
         scoreLabel.setValue("score: " + score);
     }
     
+    public void increaseIntensity()
+    {
+        zombieSpeed++;
+        spawnTime -= 150;
+        spawnAmount += 2;
+    }
+    
     public void act()
     {
         lifeLabel.setValue("life: " + guy.getLife());
@@ -103,6 +110,12 @@ public class MyWorld extends World
         {
             spawnTimer.mark();
             makeZombie(Greenfoot.getRandomNumber(spawnAmount));
+        }
+        
+        if(oldScore + 15 == score)
+        {
+            oldScore = score;
+            increaseIntensity();
         }
     }
 }

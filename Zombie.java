@@ -27,7 +27,6 @@ public class Zombie extends Actor
     static final int gravity = 2;
     static final int jumpForce = 25;
     
-    int walkSpeed = 5;
     int ySpeed = 0;
     
     int dx; //x-axis directional movement
@@ -148,6 +147,9 @@ public class Zombie extends Actor
     
     public void moveHorizontally()
     {
+        MyWorld world = (MyWorld) getWorld();
+        
+        int walkSpeed = world.zombieSpeed;
         guy = (Guy)getWorld().getObjects(Guy.class).get(0);
         
         int myWidth = getImage().getWidth();
@@ -267,10 +269,5 @@ public class Zombie extends Actor
                 }
             }
         }
-    }
-    
-    public void increaseSpeed()
-    {
-        walkSpeed++;
     }
 }
