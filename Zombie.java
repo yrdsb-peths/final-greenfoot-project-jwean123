@@ -27,7 +27,7 @@ public class Zombie extends Actor
     static final int gravity = 2;
     static final int jumpForce = 25;
     
-    int walkSpeed = 7;
+    int walkSpeed = 5;
     int ySpeed = 0;
     
     int dx; //x-axis directional movement
@@ -152,30 +152,11 @@ public class Zombie extends Actor
         
         int myWidth = getImage().getWidth();
         dx = 0; //for the direction of movement
-        
-        /**
-         * if above the Guy, then try to move off of the platform to reach him
-         */
-        if(isGrounded && guy.getY() > getY() + getImage().getHeight())
-        {
-            if(guy.getX() >= getX())
-            {
-                dx--;
-                facingRight = false;
-                isMoving = true;
-            }
-            else
-            {
-                dx++;
-                facingRight = true;
-                isMoving = true;
-            }
-        }
         /**
          * Forces zombie's horizontal movement towards guy if he isn't above
          * the zombie
          */
-        else if(guy.getY() - getY() >= 2)
+        if(guy.getY() - getY() >= 2)
         {
             if(guy.getX() >= getX())
             {
