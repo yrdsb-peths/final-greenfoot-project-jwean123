@@ -13,13 +13,11 @@ public class Zombie extends Actor
     GreenfootImage rightIdle[] = new GreenfootImage[4];
     GreenfootImage leftIdle[] = new GreenfootImage[4];
     
+    int health = 100;
+    
     private boolean facingRight;
     SimpleTimer animationTimer = new SimpleTimer();
     
-    
-    /**
-     * stuff that I copied over from the Guy class
-     */
     boolean isGrounded;
     boolean isMoving;
     
@@ -216,6 +214,18 @@ public class Zombie extends Actor
         {
             ySpeed -= jumpForce;
             isMoving = true;
+        }
+    }
+    
+    public void takeDamage()
+    {
+        if(isTouching(Bullet.class))
+        {
+            health -= 50;
+            if(health <= 0)
+            {
+                getWorld().removeObject(this);
+            }
         }
     }
 }
