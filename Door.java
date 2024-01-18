@@ -10,16 +10,24 @@ public class Door extends Actor
 {
     SimpleTimer doorCooldown = new SimpleTimer();
     SimpleTimer spawnCooldown = new SimpleTimer();
-    SimpleTimer animationTimer = new SimpleTimer();
+    SimpleTimer openingTimer = new SimpleTimer();
     
     boolean isOpen;
     
+    GreenfootImage doorImage0 = new GreenfootImage("images/Door/door0.png");
+    GreenfootImage doorImage1 = new GreenfootImage("images/Door/door1.png");
+    GreenfootImage doorImage2 = new GreenfootImage("images/Door/door2.png");
+    GreenfootImage doorImage3 = new GreenfootImage("Images/Door/door3.png");
+    
     public Door()
     {
-        GreenfootImage doorImage = new GreenfootImage("images/Door/door0.png");
-        doorImage.scale(140, 220);
-        this.setImage(doorImage);
+        doorImage0.scale(140, 220);
+        doorImage1.scale(140, 220);
+        doorImage2.scale(140, 220);
+        doorImage3.scale(140, 220);
+        this.setImage(doorImage0);
         isOpen = false;
+        openingTimer.mark();
     }
     
     /**
@@ -31,8 +39,16 @@ public class Door extends Actor
         // Add your action code here.
     }
     
-    public void doorOpen()
+    public void openDoor()
     {
-        
+        if(!isOpen)
+        {
+            this.setImage(doorImage1);
+            openingTimer.mark();
+            if(openingTimer.millisElapsed() >= 100)
+            {
+                
+            }
+        }
     }
 }
