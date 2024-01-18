@@ -8,7 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Guy extends Actor
 {
+    GreenfootSound yowch = new GreenfootSound("Realistic Punch.mp3");
+    
     private int life = 100;
+    SimpleTimer damageTickTimer = new SimpleTimer();
     
     MouseInfo mouse;
     
@@ -33,6 +36,7 @@ public class Guy extends Actor
         GreenfootImage guyImage = new GreenfootImage("green guy.png");
         guyImage.scale(30, 30);
         this.setImage(guyImage);
+        damageTickTimer.mark();
     }
     /**
      * Act - do whatever the guy wants to do. This method is called whenever
@@ -44,6 +48,7 @@ public class Guy extends Actor
         moveHorizontally();
         moveVertically();
         shooting();
+        takeDamage();
     }
     
     
@@ -134,5 +139,19 @@ public class Guy extends Actor
     public int getLife()
     {
         return life;
+    }
+    
+    public void takeDamage()
+    {
+        if(damageTickTimer.millisElapsed() < 500)
+        {
+            return;
+        }
+        if(isTouching(Zombie.class))
+        {
+            life -= 20;
+            yowch.play();
+            damageTickTimer.mark();
+        }
     }
 }

@@ -79,6 +79,6 @@ public class MyWorld extends World
     
     public void act()
     {
-        
+        lifeLabel.setValue("life: " + guy.getLife());
     }
 }
