@@ -10,7 +10,7 @@ public class Bullet extends SmoothMover
 {
     MouseInfo mouse;
     Guy guy;
-    int speed = 75;
+    int speed = 50;
     
     public Bullet()
     {
@@ -29,7 +29,11 @@ public class Bullet extends SmoothMover
         move(speed);
         
         //check for platforms
-        if(isTouching(Floor.class))
+        if(isTouching(Zombie.class))
+        {
+            getWorld().removeObject(this);
+        }
+        else if(isTouching(Floor.class))
         {
             getWorld().removeObject(this);
         }    
