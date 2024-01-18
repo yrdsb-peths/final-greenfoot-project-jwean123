@@ -15,7 +15,7 @@ public class Zombie extends Actor
     GreenfootImage rightIdle[] = new GreenfootImage[4];
     GreenfootImage leftIdle[] = new GreenfootImage[4];
     
-    int health = 100;
+    int health = 150;
     
     private boolean facingRight;
     SimpleTimer animationTimer = new SimpleTimer();

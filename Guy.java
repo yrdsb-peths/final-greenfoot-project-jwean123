@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Guy extends Actor
 {
+    private int life = 100;
+    
     MouseInfo mouse;
     
     boolean isGrounded;
@@ -127,5 +129,10 @@ public class Guy extends Actor
                 bullet.turnTowards(mouse.getX(), mouse.getY());
             }
         }
+    }
+    
+    public int getLife()
+    {
+        return life;
     }
 }
