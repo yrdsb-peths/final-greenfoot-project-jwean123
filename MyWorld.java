@@ -34,6 +34,8 @@ public class MyWorld extends World
     
     static private final int floorWidth = 200;
     static private final int floorHeight = 20;
+    
+    GreenfootSound yowch = new GreenfootSound("uhuHUHweepow.mp3");
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -94,13 +96,24 @@ public class MyWorld extends World
     
     public void increaseIntensity()
     {
-        zombieSpeed++;
+        zombieSpeed+=2;
         spawnTime -= 150;
         spawnAmount += 2;
     }
     
     public void act()
     {
+        //Allows user to exit to titlescreen whenever they want
+        TitleScreen titleScreen = new TitleScreen();
+        if(Greenfoot.isKeyDown("F"))
+        {
+            Greenfoot.setWorld(titleScreen);
+        }
+        
+        if(guy.getLife() == 0)
+        {
+           gameOver = true; 
+        }
         lifeLabel.setValue("life: " + guy.getLife());
         if(spawnTimer.millisElapsed() < spawnTime)
         {
@@ -116,6 +129,17 @@ public class MyWorld extends World
         {
             oldScore = score;
             increaseIntensity();
+        }
+    }
+    
+    public void gameEnded()
+    {
+        
+        if(gameOver = true)
+        {
+            Label endLabel = new Label("Game Over \n Nice Try!! \n [F] to quit", 40);
+            addObject(endLabel, getWidth() / 2, getHeight() / 2);
+            yowch.play();
         }
     }
 }
