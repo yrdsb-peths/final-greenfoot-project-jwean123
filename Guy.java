@@ -9,6 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Guy extends Actor
 {
     private int life = 100;
+    SimpleTimer dmgTick = new SimpleTimer();
+    
     
     MouseInfo mouse;
     
@@ -33,6 +35,7 @@ public class Guy extends Actor
         GreenfootImage guyImage = new GreenfootImage("green guy.png");
         guyImage.scale(30, 30);
         this.setImage(guyImage);
+        dmgTick.mark();
     }
     /**
      * Act - do whatever the guy wants to do. This method is called whenever
@@ -127,6 +130,22 @@ public class Guy extends Actor
                 Bullet bullet = new Bullet();
                 getWorld().addObject(bullet, getX(), getY()  - getImage().getHeight() / 2);
                 bullet.turnTowards(mouse.getX(), mouse.getY());
+            }
+        }
+    }
+    
+    public void takeDamage()
+    {
+        if(dmgTick.millisElapsed() < 2500) //How long before damage can be taken again
+        {
+            return;
+        }
+        else
+        {
+            if(isTouching(Zombie.class))
+            {
+                life -= 20;
+                dmgTick.mark();
             }
         }
     }
