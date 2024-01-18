@@ -150,11 +150,13 @@ public class Zombie extends Actor
         if(actionChoice == 1)
         {
             dx--;
+            facingRight = false;
             isMoving = true;
         }
         if(actionChoice == 2)
         {
             dx++;
+            facingRight = true;
             isMoving = true;
         }
         if(actionChoice == 4)
