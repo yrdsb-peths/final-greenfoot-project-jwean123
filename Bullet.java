@@ -29,11 +29,7 @@ public class Bullet extends SmoothMover
         move(speed);
         
         //check for zombies and platforms
-        if(isTouching(Zombie.class))
-        {
-            getWorld().removeObject(this);
-        }
-        else if(isTouching(Floor.class))
+        if(isTouching(Floor.class))
         {
             getWorld().removeObject(this);
         }    

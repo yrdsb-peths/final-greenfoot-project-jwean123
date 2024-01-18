@@ -31,6 +31,8 @@ public class Zombie extends Actor
     int dx; //x-axis directional movement
     int dy; //y-axis directional movement
     
+    GreenfootSound zombieHurt = new GreenfootSound("ZombieHurt.mp3");
+    
     SimpleTimer actionTimer = new SimpleTimer();
     int actionChoice = 0;
     /**
@@ -121,10 +123,14 @@ public class Zombie extends Actor
      */
     public void act()
     {
-        newAction();
-        moveHorizontally();
-        moveVertically();
-        animateZombie();
+        if(this.getWorld() != null)
+        {
+            newAction();
+            moveHorizontally();
+            moveVertically();
+            animateZombie();
+            takeDamage();
+        }
     }
     
     public void newAction()
@@ -164,10 +170,13 @@ public class Zombie extends Actor
         }
         
         //actual movement left and right
-        setLocation(getX() + dx * walkSpeed, getY());
+        if(this.getWorld() != null)
+        {
+            setLocation(getX() + dx * walkSpeed, getY());
+        }
         
         //world border check
-        if(getX() < myWidth / 2)
+        if(getX() < myWidth / 2 && this.getWorld() != null)
         {
             setLocation(myWidth / 2, getY());
         }
@@ -221,10 +230,15 @@ public class Zombie extends Actor
     {
         if(isTouching(Bullet.class))
         {
+            removeTouching(Bullet.class);
             health -= 50;
+            zombieHurt.play();
             if(health <= 0)
             {
-                getWorld().removeObject(this);
+                if(this.getWorld() != null)
+                {
+                    getWorld().removeObject(this);
+                }
             }
         }
     }
