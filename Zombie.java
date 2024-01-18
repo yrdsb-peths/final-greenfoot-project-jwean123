@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Zombie extends Actor
 {
+    Guy guy; //The guy the zombie wants to kill (you)
+    
     GreenfootImage rightMoving[] = new GreenfootImage[7];
     GreenfootImage leftMoving[] = new GreenfootImage[7];
     GreenfootImage rightIdle[] = new GreenfootImage[4];
@@ -146,29 +148,54 @@ public class Zombie extends Actor
     
     public void moveHorizontally()
     {
+        guy = (Guy)getWorld().getObjects(Guy.class).get(0);
+        
         int myWidth = getImage().getWidth();
         dx = 0; //for the direction of movement
         
-        //choose if moving left or right
+        /**
+         * Forces zombie's horizontal movement towards guy if he isn't at least 1
+         * floor above the zombie
+         */
+        if(guy.getY() - getY() >= 2)
+        {
+            
+            if(guy.getX() >= getX())
+            {
+                dx++;
+                facingRight = true;
+                isMoving = true;
+            }
+            else
+            {
+                dx--;
+                facingRight = false;
+                isMoving = true;
+            }
+        }
+        else
+        {
+            //choose if moving left or right
         
-        if(actionChoice == 1)
-        {
-            dx--;
-            facingRight = false;
-            isMoving = true;
+            if(actionChoice == 1)
+            {
+                dx--;
+                facingRight = false;
+                isMoving = true;
+            }
+            if(actionChoice == 2)
+            {
+                dx++;
+                facingRight = true;
+                isMoving = true;
+            }
+            if(actionChoice == 4)
+            {
+                dx = 0;
+                isMoving = false;
+            }
         }
-        if(actionChoice == 2)
-        {
-            dx++;
-            facingRight = true;
-            isMoving = true;
-        }
-        if(actionChoice == 4)
-        {
-            dx = 0;
-            isMoving = false;
-        }
-        
+                
         //actual movement left and right
         if(this.getWorld() != null)
         {
