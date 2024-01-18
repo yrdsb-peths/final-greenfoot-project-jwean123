@@ -13,7 +13,7 @@ public class MyWorld extends World
     Gun gun;
     Zombie zombie;
     
-    private int spawnTime = 2000; //Milliseconds
+    private int spawnTime = 5000; //Milliseconds
     SimpleTimer spawnTimer = new SimpleTimer();
     
     private int score = 0;
@@ -60,6 +60,7 @@ public class MyWorld extends World
             makeFloor(floorWidth, floorHeight, getWidth() / 3 * 2, getHeight() - 100 - (200 * i));
         }
         
+        makeZombie(1);
     }
     
     public void makeFloor(int width, int height, int x, int y)
@@ -77,8 +78,14 @@ public class MyWorld extends World
         }
     }
     
+    public void increaseScore()
+    {
+        score++;
+        scoreLabel.setValue("score: " + score);
+    }
+    
     public void act()
     {
-        
+        lifeLabel.setValue("life: " + guy.getLife());
     }
 }
