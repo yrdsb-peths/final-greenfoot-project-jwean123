@@ -29,7 +29,7 @@ public class Guy extends Actor
     int dy; //y-axis directional movement
     
     GreenfootSound pew = new GreenfootSound("PewPewPew.mp3");
-    
+    GreenfootSound punch = new GreenfootSound("Realistic Punch.mp3");
     public Guy()
     {
         GreenfootImage guyImage = new GreenfootImage("green guy.png");
@@ -146,6 +146,7 @@ public class Guy extends Actor
         {
             if(isTouching(Zombie.class))
             {
+                punch.play();
                 dmgTick.mark();
                 life -= 10;
             }

@@ -8,8 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-    private boolean gameOver = false;
-    
+    GreenfootSound yowch = new GreenfootSound("uhuHUHweepow.mp3");
     /**
      * Changing Variables (that worsen as the game continues)
      */
@@ -35,7 +34,6 @@ public class MyWorld extends World
     static private final int floorWidth = 200;
     static private final int floorHeight = 20;
     
-    GreenfootSound yowch = new GreenfootSound("uhuHUHweepow.mp3");
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -105,6 +103,7 @@ public class MyWorld extends World
     {
         //Allows user to exit to titlescreen whenever they want
         TitleScreen titleScreen = new TitleScreen();
+        LoseScreen loseScreen = new LoseScreen();
         if(Greenfoot.isKeyDown("F"))
         {
             Greenfoot.setWorld(titleScreen);
@@ -112,9 +111,8 @@ public class MyWorld extends World
         
         if(guy.getLife() == 0)
         {
-            Label endLabel = new Label("Game Over \n Nice Try!! \n [F] to quit", 100);
-            addObject(endLabel, getWidth() / 2, getHeight() / 2);
-            yowch.play(); 
+            yowch.play();
+            Greenfoot.setWorld(loseScreen); 
         }
         lifeLabel.setValue("life: " + guy.getLife());
         if(spawnTimer.millisElapsed() < spawnTime)
