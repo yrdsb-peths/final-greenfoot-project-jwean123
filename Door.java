@@ -8,11 +8,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Door extends Actor
 {
+    SimpleTimer doorCooldown = new SimpleTimer();
+    SimpleTimer spawnCooldown = new SimpleTimer();
+    SimpleTimer animationTimer = new SimpleTimer();
+    
+    boolean isOpen;
+    
     public Door()
     {
         GreenfootImage doorImage = new GreenfootImage("images/Door/door0.png");
         doorImage.scale(140, 220);
         this.setImage(doorImage);
+        isOpen = false;
     }
     
     /**
@@ -22,5 +29,10 @@ public class Door extends Actor
     public void act()
     {
         // Add your action code here.
+    }
+    
+    public void doorOpen()
+    {
+        
     }
 }
