@@ -257,7 +257,6 @@ public class Zombie extends Actor
         {
             removeTouching(Bullet.class);
             health -= 50;
-            zombieHurt.play();
             if(health <= 0)
             {
                 if(this.getWorld() != null)
