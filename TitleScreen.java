@@ -11,6 +11,8 @@ public class TitleScreen extends World
     Label mainLabel;
     Label rulesLabel;
     
+    Guy guy;
+    Gun gun;
     /**
      * Constructor for objects of class TitleScreen.
      * 
@@ -23,8 +25,9 @@ public class TitleScreen extends World
         mainLabel = new Label("Welcome to the original zombie shooter!\n Press [E] to start and \n [F] to end game whenever", getWidth() / 16);
         addObject(mainLabel, getWidth() / 2, (getHeight() / 2) - mainLabel.getImage().getHeight());
         
-        rulesLabel = new Label("A and D to move, space to jump \n Mouse to aim and Left Click to shoot \n \n It gets harder the longer you survive \n Good luck...", getWidth() / 20);
+        rulesLabel = new Label("A and D to move, space to jump \n Mouse to aim and Left Click to shoot \n \n The more you kill the stronger they get\n \n (pro tip: they can't see you if you're above them)", getWidth() / 20);
         addObject(rulesLabel, getWidth() / 2, (getHeight() / 2) + 70);
+        
     }
     
     public void act()
