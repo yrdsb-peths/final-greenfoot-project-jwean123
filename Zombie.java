@@ -154,12 +154,29 @@ public class Zombie extends Actor
         dx = 0; //for the direction of movement
         
         /**
-         * Forces zombie's horizontal movement towards guy if he isn't at least 1
-         * floor above the zombie
+         * if above the Guy, then try to move off of the platform to reach him
          */
-        if(guy.getY() - getY() >= 2)
+        if(isGrounded && guy.getY() > getY() + getImage().getHeight())
         {
-            
+            if(guy.getX() >= getX())
+            {
+                dx--;
+                facingRight = false;
+                isMoving = true;
+            }
+            else
+            {
+                dx++;
+                facingRight = true;
+                isMoving = true;
+            }
+        }
+        /**
+         * Forces zombie's horizontal movement towards guy if he isn't above
+         * the zombie
+         */
+        else if(guy.getY() - getY() >= 2)
+        {
             if(guy.getX() >= getX())
             {
                 dx++;
