@@ -33,6 +33,7 @@ Aim and shoot with your mouse
 ### How to **NOT** get eaten alive
 
 Run away
+
 Or go on the platforms (recommended)
 
 *Pro tip: They can't see you if you're on a platform above them*
