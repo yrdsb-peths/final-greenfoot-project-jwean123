@@ -14,11 +14,11 @@ This game is a game about **surviving zombies** for as long as you can.
 
 ## Controls
 
-Use [A] key to move left, and [D] key to move right
++ Use [A] key to move left, and [D] key to move right
 
-Use [space] to jump
++ Use [space] to jump
 
-Aim and shoot with your mouse
++ Aim and shoot with your mouse
 
 ## Enemy Combatants to eliminate
 
@@ -28,9 +28,9 @@ Zombies:
 
 ## How to **NOT** get eaten alive
 
-Run away
++ Run away
 
-Or go on the platforms (recommended)
++ Or go on the platforms (recommended)
 
 *Pro tip: They can't see you if you're on a platform above them*
 
@@ -43,19 +43,19 @@ Or go on the platforms (recommended)
 
 ### Dead ahead
 
-For the zombie sprites
++ For the zombie sprites
 
 ### Pavlov
 
-For the [Gun](https://pavlov.fandom.com/wiki/AK-47) sprites
++ For the [Gun](https://pavlov.fandom.com/wiki/AK-47) sprites
 
 ### Roblox
 
-For the death sound
++ For the death sound
 
 ### Other creators??
 
-***All the other sounds are downloaded from [YouTube](https://www.youtube.com/), but I don't know the rightful owners so just know that it isn't me
++ ***All the other sounds are downloaded from [YouTube](https://www.youtube.com/), but I don't know the rightful owners so just know that it isn't me
 
 </details>
 
@@ -64,7 +64,7 @@ For the death sound
 
 <summary>Array usage</summary>
 
-Arrays are used to animate the zombie sprite
++ Arrays are used to animate the zombie sprite
 
 That's it...
 
