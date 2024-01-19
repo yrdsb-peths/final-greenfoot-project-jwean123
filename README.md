@@ -7,11 +7,6 @@
 
 This game is a game about **surviving zombies** for as long as you can.
 
-You can kill them
-
-Or hide...
-
-You can't hide if you're not above them though.
 
 <details>
 
@@ -41,4 +36,34 @@ Or go on the platforms (recommended)
 </details>
 
 
-(Arrays are used in the zombie animation)
+<details>
+
+<summary>Credits</summary>
+
+### Dead ahead (a zombie game)
+
+For the zombie sprites
+
+### Pavlov
+
+For the [Gun](https://pavlov.fandom.com/wiki/AK-47) sprites
+
+### Roblox
+
+For the death sound
+
+
+***All the other sounds are downloaded from [YouTube](https://www.youtube.com/), but I don't know the rightful owners so just know that it isn't me
+
+</details>
+
+
+<details>
+
+<summary>Array usage</summary>
+
+Arrays are used to animate the zombie sprite
+
+That's it...
+
+</details>
