@@ -5,3 +5,6 @@ This game is a game about surviving zombies for as long as you can. Each zombie 
 To get started, press [E] to enter the game, and [F] to exit back to the title screen whenever you want.
 
 Pro Tip: The Zombies can't see you if you're above them.
+
+
+(Arrays are used in the zombie animation)
