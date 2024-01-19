@@ -12,7 +12,7 @@ This game is a game about **surviving zombies** for as long as you can.
 
 <summary>How to play</summary>
 
-### Controls
+## Controls
 
 Use [A] key to move left, and [D] key to move right
 
@@ -20,12 +20,13 @@ Use [space] to jump
 
 Aim and shoot with your mouse
 
-### Enemy Combatants to eliminate
+## Enemy Combatants to eliminate
+
+Zombies:
 
 ![Zombies](images/Zombie/moving0Left.png)
 
-
-### How to **NOT** get eaten alive
+## How to **NOT** get eaten alive
 
 Run away
 
@@ -40,7 +41,7 @@ Or go on the platforms (recommended)
 
 <summary>Credits</summary>
 
-### Dead ahead (a zombie game)
+### Dead ahead
 
 For the zombie sprites
 
@@ -52,6 +53,7 @@ For the [Gun](https://pavlov.fandom.com/wiki/AK-47) sprites
 
 For the death sound
 
+### Other creators??
 
 ***All the other sounds are downloaded from [YouTube](https://www.youtube.com/), but I don't know the rightful owners so just know that it isn't me
 
