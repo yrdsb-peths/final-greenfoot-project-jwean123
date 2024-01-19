@@ -20,6 +20,7 @@ You can't hide if you're not above them though.
 ### Controls
 
 Use [A] key to move left, and [D] key to move right
+
 Use [space] to jump
 
 Aim and shoot with your mouse
