@@ -8,7 +8,8 @@
 This game is a game about **surviving zombies** for as long as you can.
 
 You can kill them
-Or hide
+
+Or hide...
 
 You can't hide if you're not above them though.
 
