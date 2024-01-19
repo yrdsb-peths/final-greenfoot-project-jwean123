@@ -12,6 +12,8 @@ Or hide
 
 You can't hide if you're not above them though.
 
+<details>
+
 <summary>How to play</summary>
 
 ### Controls
